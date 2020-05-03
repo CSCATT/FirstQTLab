@@ -19,16 +19,18 @@ class LabOne(QtWidgets.QMainWindow, Ui_MainWindow):
         # Показать наше окно
         self.show()
 
+        # LCDnumber starter
         self.lcdNumber.setDigitCount(3)
         self.digit = 0
         self.lcdNumber.display(self.digit)
 
+        # Button pressed
         self.pushButton.clicked.connect(self.counterDigitUp)
         self.pushButton_2.clicked.connect(self.Quit)
         # self.pushButton_2.clicked.connect()
         # self.pushButton_3.clicked.connect()
 
-
+        # RadiButton pressed
         self.radioButton.pressed.connect(self.switcher)
         self.radioButton_2.pressed.connect(self.switcher)
         self.radioButton_3.pressed.connect(self.switcher)
@@ -69,12 +71,6 @@ class LabOne(QtWidgets.QMainWindow, Ui_MainWindow):
             self.setCursor(Qt.PointingHandCursor)
 
 
-    def setRecallMethod(self, recalleble):
-        if recalleble == 1:
-            self.switcher()
-        else:
-            return None
-
     def Quit(self):
         QApplication.quit()
 
@@ -88,21 +84,12 @@ class LabOne(QtWidgets.QMainWindow, Ui_MainWindow):
         self.show()
 
 
-
-
-    # в поле вывода устанавливаем ноль при запуске
     # self.lineEdit.setText('0')
-
-
-    # pressed
-    # self.pushButton.clicked.connect(self.on_digit_pressed)  # 1
-
-
     # lineEdit - белое поле, в котором будут транслироваться все цифры и операции
     # text() - возвращает текст, который написан на нашей кнопке
     # setText() - кладет текст в объект от которого мы вызываем его
     # sender() - функция, которая возвращает отправителя сигнала (какая кнопка была нажата, от какой идет сигнал)
-    # button.text() - помещает текст кнопки
+    # button.text() - текст кнопки
 
     # def on_digit_pressed(self):
     #     button = self.sender()
@@ -121,29 +108,10 @@ class LabOne(QtWidgets.QMainWindow, Ui_MainWindow):
     # float(object) - делает float num.num
     # int(object) - делает integer
 
-
-    # def on_operation_pressed(self):
-    #     button = self.sender()
-    #     self.operation_id = button.text()
-    #     self.LOG_TAG_CHECKER()
-    #
-    #     if self.on_operation_click_check > 0:
-    #         self.secondMemoryCell = float(self.lineEdit.text())
-    #         self.LOG_TAG_CHECKER()
-    #         do_operation = self.operation(self.firstMemoryCell, self.secondMemoryCell)
-    #         self.lineEdit.setText('0')
-    #         print("PRINT_TAG: do_operation = ", do_operation)
-    #     else:
-    #         self.firstMemoryCell = float(self.lineEdit.text())
-    #         self.lineEdit.setText('0')
-    #         self.on_operation_click_check += 1
-    #
-    #     print(self.operation_id, type(self.firstMemoryCell), self.firstMemoryCell,
-    #           type(self.secondMemoryCell), self.secondMemoryCell)
 if __name__ == '__main__':
     # Новый экземпляр QApplication
     app = QtWidgets.QApplication(sys.argv)
-    # Сздание инстанса класса Калькулятор, который мы создадим далее
+    # Сздание инстанса класса LabOne, который мы создадим далее
     lab = LabOne()
     # Запуск
     sys.exit(app.exec_())
